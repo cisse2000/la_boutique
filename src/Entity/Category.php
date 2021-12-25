@@ -44,6 +44,11 @@ class Category
         return $this->name;
     }
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
     public function setName(string $name): self
     {
         $this->name = $name;

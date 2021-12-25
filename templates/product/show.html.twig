@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Produits - {{ parent() }} {% endblock %}
+
+{% block content %}
+
+<div class="row mb-5 product-show">
+
+    {% for product in products %}
+    <h3 class="mt-4">{{product.name }}</h3>
+
+        <div class="col-md-4">
+            <div class="product-show text-center" >
+                <img src="/uploads/{{product.illustration}}" alt="{{product.illustration}}" class="img-fluid">
+                    <h5>{{product.name}}</h5> 
+                    <span class="product-subtitle">{{product.subtitle}}</span>
+                    <span class="product-price">{{(product.price / 100)|number_format(2, ',','.')}} $</span>
+                    <a href="{{path('add_to_cart',{id: product.id})}}" class="btn btn-info">Ajouter au pannier</a>  
+                    <hr>
+            </div>
+        </div>
+        <div class="md-4">
+            <p>{{product.content|raw}}</p>
+        </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
