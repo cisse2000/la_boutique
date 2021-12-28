@@ -6,7 +6,6 @@ use App\Classe\Searche;
 use App\Entity\Product;
 use App\Form\SearcheType;
 use Doctrine\ORM\EntityManagerInterface;
-use PhpParser\Node\Stmt\Break_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
