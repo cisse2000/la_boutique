@@ -4,7 +4,7 @@ namespace App\Classe;
 
 use App\Entity\Category;
 
-class Searche
+class Search
 {
     /**
      * @var string

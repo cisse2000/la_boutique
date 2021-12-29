@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Classe\Searche;
+use App\Classe\Search;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -20,7 +20,7 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    public function findWithSearch(Searche $search)
+    public function findWithSearch(Search $search)
     {
         $query = $this
                     ->createQueryBuilder('p')

@@ -2,11 +2,10 @@
 
 namespace App\Controller;
 
-use App\Classe\Searche;
+use App\Classe\Search;
 use App\Entity\Product;
-use App\Form\SearcheType;
+use App\Form\SearchType;
 use Doctrine\ORM\EntityManagerInterface;
-use PhpParser\Node\Stmt\Break_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,8 +24,8 @@ class ProductController extends AbstractController
     public function index(Request $request): Response
     {
         
-        $searche = new Searche;
-        $form = $this->createForm(SearcheType::class,$searche);
+        $searche = new Search;
+        $form = $this->createForm(SearchType::class,$searche);
         
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -51,10 +50,12 @@ class ProductController extends AbstractController
     public function show($slug): Response
     {
 
-        $products = $this->entityManager->getRepository(Product::class)->findBy(['slug' => $slug]);
-        
+        $product = $this->entityManager->getRepository(Product::class)->findBy(['slug' => $slug]);
+
+        if(!$product) return $this->redirectToRoute('products');
+
         return $this->render('product/show.html.twig', [
-            'products' => $products
+            'products' => $product
         ]);
     }
 }

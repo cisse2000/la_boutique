@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte - {{ parent() }} {% endblock %}
+
+{% block content %}
+    <div class="compte row">
+        <h1>Mon compte</h1>
+        <p>Bienvenue dans votre compte. <br> C'est ici que vous allez pouvoir gérer toutes les informations personnelles.</p>
+        <hr>
+        <a href="{{path('account_password')}}"> - Modifier mon mot de pass </a><br>
+        - Ajouter mes adresses <br>
+        - Mes commandes 
+
+    </div>
+{% endblock %}

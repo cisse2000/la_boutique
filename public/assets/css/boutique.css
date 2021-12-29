@@ -9,7 +9,7 @@
     display: block;
 }
 
-.product-item .product-price{
+.product-item{
     font-size: 15px;
     font-weight: bold;
 }
@@ -17,3 +17,17 @@
 .product-item .img-fluid{
     height: 200px;
 }
+
+.product-price{
+    font-size: 25px;
+    display: block;
+    
+}
+
+/* .footer-custom{
+    text-align: center;
+    position: relative;
+    margin-bottom: 0px;
+    width: 100%;
+    background-color: #dfea;
+} */

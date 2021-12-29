@@ -1,7 +1,7 @@
 <?php
 namespace App\Form;
 
-use App\Classe\Searche;
+use App\Classe\Search;
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SearcheType extends AbstractType
+class SearchType extends AbstractType
 {
     
 
@@ -47,7 +47,7 @@ class SearcheType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Searche::class,
+            'data_class' => Search::class,
             'method' => 'GET'
         ]);
     }
