@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes adresses - {{ parent() }}{% endblock %}
+
+{% block content %}
+    <div class="address mt-5 row">
+        <div class="col-6">
+            <h1>Mes adresses</h1>
+            {# <pre>
+                {{ dump(app.user) }}
+            </pre>
+            {% if app.user.address|length == 0 %}
+                <p>Vous n'avez pas encore d'adresse , veuillez cliquer sur le button au dessus pour en créer.</p>
+
+            {% else %}
+
+            {% endif %}
+             #}
+        
+        </div>
+        <div class="col-6">
+            <a href="{{path('add_address')}}" class="btn btn-block btn-info">Ajouter une adresse</a>
+        </div>
+    </div>
+{% endblock %}

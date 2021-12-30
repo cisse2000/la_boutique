@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une adresse - {{ parent() }}{% endblock %}
+
+{% block content %}
+    <div class="address mt-5 row">
+        <div class="col-6">
+            <h1>Ajouter une adresse</h1>
+            
+            {{ form_start(form) }}
+                {{form(form)}}
+            {{ form_end(form) }}
+        
+        </div>
+        <div class="col-6">
+            
+        </div>
+    </div>
+{% endblock %}

@@ -6,6 +6,7 @@ use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 
 class UserCrudController extends AbstractCrudController
@@ -30,7 +31,7 @@ class UserCrudController extends AbstractCrudController
                 'Utilisateur'  => 'ROLE_USER'
             ])
             ->allowMultipleChoices(),
-            TextField::new('password', 'Mot de pass')
+            BooleanField::new('is_verified','Verifié')->onlyOnIndex()
         ];
     }
     

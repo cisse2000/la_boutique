@@ -23,13 +23,13 @@
                     
                     <tr>
                         <th scope="row">
-                            <img src="/uploads/{{product.product.illustration}}" height="20px" alt="{{product.product.illustration}}" class="img-fluid">
+                            <img src="/uploads/{{product.product.illustration}}" height="40px"  alt="{{product.product.illustration}}">
                         </th>
                         <td>{{product.product.name}}</td>
                         <td> <small>{{product.product.subtitle }}</small></td>
                         <td>
                             <a href="{{path('decrease_to_cart',{id : product.product.id})}}">
-                                <img src="{{asset('assets/img/remove.png')}}" height="20px" alt="Rétirer une quantité à son produit">
+                                <img src="{{asset('assets/img/remove.png')}}" class="" height="25px" alt="Rétirer une quantité à son produit">
                             </a>
                             X {{product.quantity}}
                             <a href="{{path('add_to_cart', {id: product.product.id})}}">
@@ -40,7 +40,7 @@
                         <td>{{((product.product.price * product.quantity) / 100)|number_format(2, ',', '.') }} $</td>
                         <td>
                             <a href="{{path('delete_to_cart',{id: product.product.id})}}">
-                                <img src="{{asset('assets/img/delete.png')}}" alt="Supprimer un produit" height="30px">
+                                <img src="{{asset('assets/img/delete.png')}}" alt="Supprimer un produit" height="25px">
                             </a>
                         <td</td>
 
