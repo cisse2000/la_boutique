@@ -4,22 +4,39 @@
 
 {% block content %}
     <div class="address mt-5 row">
-        <div class="col-6">
-            <h1>Mes adresses</h1>
-            {# <pre>
-                {{ dump(app.user) }}
-            </pre>
-            {% if app.user.address|length == 0 %}
+        <h1>Mes adresses</h1>
+        <div class="col-8">
+            {% if app.user.addresses|length == 0 %}
                 <p>Vous n'avez pas encore d'adresse , veuillez cliquer sur le button au dessus pour en créer.</p>
 
             {% else %}
+                <div class="row">
+                    {% for address in app.user.addresses %}
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"> {{address.name}} </h5>
+                                    <p class="card-text"> {{address.address}}, <br>
+                                        {{address.postal}} - {{address.city}} - {{address.country}}
+                                    
+                                    </p>
+
+                                    <a href="{{path('edit_address', {id: address.id})}}">Modifier</a> | <a href="{{path('remove_address', {id: address.id})}}">Supprimer</a>
+
+                                </div>
+                            </div>
+                        
+                        </div>
+                    {% endfor %}
+                </div>
 
             {% endif %}
-             #}
         
         </div>
-        <div class="col-6">
-            <a href="{{path('add_address')}}" class="btn btn-block btn-info">Ajouter une adresse</a>
+
+            
+        <div class="col-4">
+            <a href="{{path('add_address')}}" class="btn  btn-block btn-info">Ajouter une adresse</a>
         </div>
     </div>
 {% endblock %}

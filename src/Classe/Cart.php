@@ -2,7 +2,6 @@
 namespace App\Classe;
 
 use App\Entity\Product;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -52,19 +51,24 @@ class Cart
     {
         $cartComplete = [];
 
-        foreach($this->get() as $id => $quantity){
+        if($this->get()){
 
-            $object = $this->entityManager->getRepository(Product::class)->find($id);
-            if(!$object) {
-                $this->delete($id);
-                continue;
+            foreach($this->get() as $id => $quantity){
+    
+                $object = $this->entityManager->getRepository(Product::class)->find($id);
+                if(!$object) {
+                    $this->delete($id);
+                    continue;
+                }
+    
+                $cartComplete[] = [
+                    'product' => $object,
+                    'quantity' => $quantity
+                ];
             }
 
-            $cartComplete[] = [
-                'product' => $object,
-                'quantity' => $quantity
-            ];
         }
+
 
         return $cartComplete;
     }

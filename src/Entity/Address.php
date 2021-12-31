@@ -63,6 +63,11 @@ class Address
      */
     private $country;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $phone;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -83,6 +88,11 @@ class Address
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function __toString()
+    {
+        return $this->getName() .'[br]'.$this->getAddress().'[br]'.$this->getCity().' - '.$this->getCountry() ;
     }
 
     public function setName(string $name): self
@@ -172,6 +182,18 @@ class Address
     public function setCountry(string $country): self
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }
