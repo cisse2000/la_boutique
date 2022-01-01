@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block javascripts %}
+    {# <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script> #}
+    <script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
 {% block title %}Valider ma commande - {{ parent() }}{% endblock %}
 
 {% block content %}
@@ -49,4 +54,8 @@
             <a href="#" class="btn btn-block btn-success mt-3 "> Payer | {{((total / 100) + carrier.price)|number_format(2, ',', '.')}} $ </a>
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    
 {% endblock %}
